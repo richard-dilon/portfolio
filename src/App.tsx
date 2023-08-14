@@ -1,37 +1,31 @@
-import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
-import { enUS } from "@mui/material/locale";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 import Header from './layout/Header'
 import Home from "./layout/Home";
 import Contact from "./layout/Contact";
 import Resume from "./layout/Resume";
 import Footer from "./layout/Footer";
+import * as React from 'react';
 
-const theme = createTheme(
-  {
-    palette: {
-      primary: {
-        main: "#000000",
-      },
-      secondary: {
-        main: "#ffffff",
-      },
-      mode: "dark",
-    },
-  },
-  enUS,
-);
+interface AppProps {
+  theme: any;
+  colorMode: any;
+}
 
-function App() {
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+
+function App(props: AppProps) {
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header />
-      <Home />
-      <Resume />
-      <Contact />
-      <Footer />
-    </ThemeProvider>
+    <ColorModeContext.Provider value={props.colorMode}>
+      <ThemeProvider theme={props.theme}>
+        <CssBaseline />
+        <Header onClick={props.colorMode.toggleColorMode} theme={props.theme}/>
+        <Home />
+        <Resume />
+        <Contact />
+        <Footer />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   )
 }
 
