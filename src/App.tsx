@@ -1,10 +1,10 @@
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import Header from './layout/Header'
-import Home from "./layout/Home";
-import Contact from "./layout/Contact";
-import Resume from "./layout/Resume";
-import Footer from "./layout/Footer";
 import * as React from 'react';
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import Header from './components/Header'
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Resume from "./pages/Resume";
+import Footer from "./components/Footer";
 
 interface AppProps {
   theme: any;
@@ -19,7 +19,7 @@ function App(props: AppProps) {
     <ColorModeContext.Provider value={props.colorMode}>
       <ThemeProvider theme={props.theme}>
         <CssBaseline />
-        <Header onClick={props.colorMode.toggleColorMode} theme={props.theme}/>
+        <Header onClick={props.colorMode.toggleColorMode} mode={props.theme.palette.mode}/>
         <Home />
         <Resume />
         <Contact />
