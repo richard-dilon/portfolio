@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material';
-import { EmphasizedText } from '../components/styles';
+import { EmphasizedText } from '../components/Styles';
 
 export default function Home() {
 

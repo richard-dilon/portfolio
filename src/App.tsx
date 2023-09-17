@@ -2,8 +2,9 @@ import * as React from 'react';
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import Header from './components/Header'
 import Home from "./pages/Home";
-import Contact from "./pages/Contact";
+import Skills from './pages/Skills';
 import Resume from "./pages/Resume";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 interface AppProps {
@@ -33,6 +34,7 @@ function App(props: AppProps) {
         <CssBaseline />
         <Header onClick={props.colorMode.toggleColorMode} mode={props.theme.palette.mode}/>
         <Home />
+        <Skills />
         <Resume />
         <Contact />
         <Footer />

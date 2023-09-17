@@ -18,6 +18,10 @@ const navItems = [
     page: "home"
   },
   {
+    button: "Skills",
+    page: "skills"
+  },
+  {
     button: "Resume",
     page: "resume"
   },
