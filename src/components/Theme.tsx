@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import App from '../App';
 
 
@@ -31,7 +31,7 @@ function Theme() {
     );
   
     return (
-        <App theme={theme} colorMode={colorMode}/>
+        <App theme={responsiveFontSizes(theme)} colorMode={colorMode}/>
     );
   }
 
