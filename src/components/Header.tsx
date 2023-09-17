@@ -1,7 +1,15 @@
 import * as React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { AppBar, Box, Toolbar, Typography, Button, Container, Menu, MenuItem } from "@mui/material";
-import { Menu as MenuIcon, Brightness4 as Brightness4Icon, Brightness7 as Brightness7Icon } from "@mui/icons-material";
+import {
+  Menu as MenuIcon,
+  Brightness4 as Brightness4Icon,
+  Brightness7 as Brightness7Icon,
+  LinkedIn as LinkedInIcon,
+  GitHub as GitHubIcon,
+  Email as EmailIcon,
+  ContactPage as ContactPageIcon,
+} from "@mui/icons-material";
 
 
 const navItems = [
@@ -42,6 +50,11 @@ export default function Header(props: HeaderProps) {
 
   const handleSelected = (item: string) => {
     setSelected(item);
+  };
+
+  const switchThemeMode = () => {
+    props.onClick();
+    handleCloseNavMenu();
   };
 
   return (
@@ -96,7 +109,60 @@ export default function Header(props: HeaderProps) {
                   <Typography textAlign="center">{item.button}</Typography>
                 </MenuItem>
               ))}
-              <Button sx={{ justifyContent: "right" }} onClick={props.onClick} color="inherit">
+              <Button
+                component={Link}
+                to={"https://www.linkedin.com/in/richard-dilon/"}
+                target="_blank"
+                onClick={handleCloseNavMenu}
+                sx={{
+                  color: "inherit",
+                  ":hover": {
+                    backgroundColor: "#ffffff",
+                    color: "#000000"
+                  },
+                }}
+              >
+                <LinkedInIcon />
+              </Button>
+              <Button
+                component={Link}
+                to={"https://github.com/richard-dilon/"}
+                target="_blank"
+                onClick={handleCloseNavMenu}
+                sx={{
+                  color: "inherit",
+                  ":hover": {
+                    backgroundColor: "#ffffff",
+                    color: "#000000"
+                  },
+                }}
+              >
+                <GitHubIcon />
+              </Button>
+              <Button
+                sx={{
+                  color: "inherit",
+                  ":hover": {
+                    backgroundColor: "#ffffff",
+                    color: "#000000"
+                  },
+                }}
+              >
+                <EmailIcon />
+              </Button>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  color: "inherit",
+                  ":hover": {
+                    backgroundColor: "#ffffff",
+                    color: "#000000"
+                  },
+                }}
+              >
+                <ContactPageIcon />
+              </Button>
+              <Button onClick={switchThemeMode} color="inherit">
                 {props.mode === "light" ? <Brightness7Icon /> : <Brightness4Icon />}
               </Button>
             </Menu>
@@ -117,7 +183,7 @@ export default function Header(props: HeaderProps) {
             Richard Dilon
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 0.65, display: { xs: "none", md: "flex" } }}>
             {navItems.map((item) => (
               <Button
                 component={Link}
@@ -140,7 +206,57 @@ export default function Header(props: HeaderProps) {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0.2, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
+            <Button
+              component={Link}
+              to={"https://www.linkedin.com/in/richard-dilon/"}
+              target="_blank"
+              sx={{
+                color: "inherit",
+                ":hover": {
+                  backgroundColor: "#ffffff",
+                  color: "#000000"
+                },
+              }}
+            >
+              <LinkedInIcon />
+            </Button>
+            <Button
+              component={Link}
+              to={"https://github.com/richard-dilon/"}
+              target="_blank"
+              sx={{
+                color: "inherit",
+                ":hover": {
+                  backgroundColor: "#ffffff",
+                  color: "#000000"
+                },
+              }}
+            >
+              <GitHubIcon />
+            </Button>
+            <Button
+              sx={{
+                color: "inherit",
+                ":hover": {
+                  backgroundColor: "#ffffff",
+                  color: "#000000"
+                },
+              }}
+            >
+              <EmailIcon />
+            </Button>
+            <Button
+              sx={{
+                color: "inherit",
+                ":hover": {
+                  backgroundColor: "#ffffff",
+                  color: "#000000"
+                },
+              }}
+            >
+              <ContactPageIcon />
+            </Button>
             <Button
               onClick={props.onClick}
               sx={{
