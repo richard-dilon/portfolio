@@ -7,9 +7,21 @@ import Resume from "./pages/Resume";
 import Footer from "./components/Footer";
 
 interface AppProps {
-  theme: any;
-  colorMode: any;
-}
+  theme: {
+    palette: {
+      primary: {
+        main: string;
+      };
+      secondary: {
+        main: string;
+      };
+      mode: string;
+    };
+  };
+  colorMode: {
+    toggleColorMode: () => void;
+  };
+};
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
